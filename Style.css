@@ -1,0 +1,649 @@
+/* ====== GENERAL RESET ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+  color: #fff;
+  scroll-behavior: smooth;
+  background: black;
+}
+
+/* ====== NAVBAR ====== */
+.button-bg {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0,0,0,0.15);
+  backdrop-filter: blur(10px);
+}
+
+.button-bg h1#name {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  font-size: 30px;
+  color: gold;
+  letter-spacing: 2px;
+}
+
+.button-container {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.button-container li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  position: relative;
+  padding: 5px 0;
+  transition: color 0.3s;
+}
+
+.button-container li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 2px;
+  background: gold;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.button-container li a:hover {
+  color: gold;
+}
+
+.button-container li a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Smooth scroll fix for sections */
+section {
+  scroll-margin-top: 80px; /* Navbar height */
+}
+
+/* ====== HOME / NAME SECTION ====== */
+.name {
+  margin-top: 150px;
+  margin-left: 10%;
+}
+
+.name h1 {
+  font-size: 60px;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+.name p {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+/* ====== PROFILE PICTURE ====== */
+.profile-pic {
+  position: absolute;
+  top: 80px;
+  right: 10%;
+  width: 300px;
+  border-radius: 50%;
+}
+
+/* ====== CLOUDS ====== */
+.clouds {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.cloud {
+  position: absolute;
+  background: #fff;
+  border-radius: 50%;
+  opacity: 0.2;
+  animation: moveClouds linear infinite;
+}
+
+.cloud::before,
+.cloud::after {
+  content: "";
+  position: absolute;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.cloud::before {
+  width: 60%;
+  height: 60%;
+  top: -30%;
+  left: 10%;
+}
+
+.cloud::after {
+  width: 40%;
+  height: 40%;
+  top: -20%;
+  left: 50%;
+}
+
+/* cloud positions & speeds */
+.cloud1 { width: 100px; height: 60px; top: 15%; left: 1400px; animation-duration: 40s;}
+.cloud2 { width: 150px; height: 80px; top: 35%; left: 1600px; animation-duration: 50s;}
+.cloud3 { width: 80px; height: 50px; top: 20%; left: 2000px; animation-duration: 45s;}
+.cloud4 { width: 100px; height: 80px; top: 70%; left: 1100px; animation-duration: 55s;}
+.cloud5 { width: 170px; height: 50px; top: 80%; left: 1500px; animation-duration: 60s;}
+
+@keyframes moveClouds {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-2500px);}
+}
+
+/* ====== Spider Web Cursor Canvas ====== */
+#cursor-web {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ====== Page-wide cursor follower ====== */
+#cursor-follower {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 215, 0, 0.8);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  transition: transform 0.05s ease-out;
+  mix-blend-mode: difference;
+}
+
+/* ====== GLASSY HR ====== */
+.glassy-hr {
+  border: none;
+  height: 2px;
+  width: 40%;
+  margin: 10px auto;
+  margin-left: 5%;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(8px);
+  border-radius: 10px;
+}
+
+/* ====== CURSOR ====== */
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  border: 1.5px solid rgba(255, 215, 0, 0.6);
+  backdrop-filter: blur(6px);
+  transform: translate(-50%, -50%);
+}
+
+/* ====== ABOUT SECTION ====== */
+.about-wrapper {
+  padding: 80px 20px;
+  text-align: center;
+  max-width: 900px;
+  margin: 150px auto 50px auto;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(12px);
+  border-radius: 24px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+}
+
+.about-wrapper .main-title {
+  font-size: 36px;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.glass-about {
+  background: rgba(255,255,255,0.08);
+  padding: 25px 20px;
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  line-height: 1.7;
+  font-size: 18px;
+  text-align: left;
+}
+
+.glass-about strong { color: gold; font-weight: 600; }
+
+/* ====== SKILLS SECTION ====== */
+.skills-wrapper {
+  padding: 80px 20px;
+  text-align: center;
+  margin: 50px auto;
+  max-width: 1200px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(12px);
+  border-radius: 24px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+}
+
+.skills-wrapper .main-title {
+  font-size: 36px;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.glass-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.skill-set {
+  flex: 1 1 300px;
+  min-width: 250px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.skill-set h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: gold;
+}
+
+.skill-box { margin: 15px 0; }
+
+.skill-box .title {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  text-align: left;
+}
+
+.skill-bar {
+  position: relative;
+  width: 100%;
+  height: 10px;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.1);
+  overflow: hidden;
+}
+
+.skill-per {
+  display: block;
+  height: 100%;
+  border-radius: 6px;
+  background: gold;
+  width: 0;
+  animation: fillBar 1s ease forwards;
+  position: relative;
+}
+
+.skill-per.html { animation-delay: 0.1s; width: 98%; }
+.skill-per.css { animation-delay: 0.2s; width: 90%; }
+.skill-per.bootstrap { animation-delay: 0.3s; width: 80%; }
+.skill-per.javascript { animation-delay: 0.4s; width: 70%; }
+.skill-per.react { animation-delay: 0.5s; width: 60%; }
+.skill-per.firebase { animation-delay: 0.6s; width: 50%; }
+.skill-per.nodejs { animation-delay: 0.7s; width: 40%; }
+.skill-per.express { animation-delay: 0.8s; width: 35%; }
+.skill-per.php { animation-delay: 0.9s; width: 50%; }
+
+.skill-per .tooltip {
+  position: absolute;
+  right: -14px;
+  top: -28px;
+  font-size: 10px;
+  font-weight: 500;
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 3px;
+  background: gold;
+}
+
+/* Progress Animation */
+@keyframes fillBar {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+
+/* ====== SERVICES SECTION ====== */
+.services {
+  padding: 100px 10%;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 50px;
+  color: #fff;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  perspective: 1000px;
+}
+
+.flip-card {
+  background: transparent;
+  width: 100%;
+  height: 380px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-shadow: 0 8px 32px rgba(104, 98, 98, 0.3);
+}
+
+.flip-card-front {
+  background: rgba(58,46,46,0.12);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.flip-card-front img {
+  width: 60px;
+  margin-bottom: 15px;
+  filter: drop-shadow(0 0 8px gold);
+}
+
+.flip-card-front h3 {
+  color: gold;
+  font-size: 20px;
+}
+
+.flip-card-back {
+  background: rgba(255,255,255,0.12);
+  transform: rotateY(180deg);
+  font-size: 14px;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* ====== PORTFOLIO SECTION ====== */
+#portfolio {
+  padding: 100px 20%;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 32px;
+  color: gold;
+  margin-bottom: 40px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  perspective: 1000px;
+}
+
+.portfolio-card {
+  background: transparent;
+  height: 300px;
+}
+
+.portfolio-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.portfolio-card:hover .portfolio-card-inner {
+  transform: rotateY(180deg);
+}
+
+.portfolio-front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  z-index: 2;
+}
+
+.portfolio-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 0 15px gold;
+  transition: transform 0.3s;
+}
+
+.portfolio-card:hover .portfolio-front img {
+  transform: scale(1.05);
+}
+
+.portfolio-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.portfolio-back h3 {
+  color: gold;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.portfolio-back p {
+  font-size: 14px;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.portfolio-back .btn {
+  display: inline-block;
+  padding: 8px 15px;
+  background: gold;
+  color: #000;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.portfolio-back .btn:hover {
+  background: #fff;
+  color: gold;
+}
+
+/* ====== CONTACT SECTION ====== */
+.contact-section {
+  padding: 80px 10%;
+}
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.contact-info .info-box {
+  margin-bottom: 25px;
+}
+
+.contact-info h4 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.contact-info a {
+  text-decoration: none;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  outline: none;
+}
+
+.contact-form button {
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* ====== FOOTER ====== */
+.footer {
+  padding: 20px 10%;
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.8;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: gold;
+}
+
+.footer a {
+  text-decoration: none;
+  margin: 0 8px;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.footer a:hover {
+  opacity: 1;
+}
+
+/* ====== RESPONSIVE MEDIA QUERIES ====== */
+@media (max-width: 1200px) {
+  .profile-pic { width: 250px; top: 200px; }
+  .name h1 { font-size: 50px; }
+  .section-title { font-size: 32px; }
+  .flip-card-front h3 { font-size: 18px; }
+  .flip-card-back { font-size: 13px; }
+}
+
+@media (max-width: 992px) {
+  .glass-container { flex-direction: row; justify-content: space-around; }
+  .skill-set { flex: 1 1 45%; }
+}
+
+@media (max-width: 900px) {
+  .services { padding: 60px 5%; }
+  .section-title { font-size: 28px; margin-bottom: 40px; }
+  .flip-card { height: 250px; }
+  .flip-card-front img { width: 50px; }
+}
+
+@media (max-width: 768px) {
+  .name { margin-left: 5%; margin-top: 180px; }
+  .profile-pic { top: 250px; width: 200px; }
+  .skill-set { flex: 1 1 80%; margin: 15px auto; }
+  .button-bg { flex-direction: column; gap: 10px; padding: 10px; }
+  .button-container { flex-wrap: wrap; justify-content: center; gap: 10px; }
+  .contact-container { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .services { padding: 50px 4%; }
+  .section-title { font-size: 24px; margin-bottom: 35px; }
+  .services-grid { grid-template-columns: 1fr; gap: 20px; }
+  .flip-card { height: 220px; }
+  .flip-card-front img { width: 45px; margin-bottom: 12px; }
+  .flip-card-front h3 { font-size: 16px; }
+  .flip-card-back { font-size: 12px; padding: 15px; }
+}
+
+@media (max-width: 480px) {
+  .name h1 { font-size: 40px; }
+  .name p { font-size: 16px; }
+  .profile-pic { width: 150px; top: 280px; right: 5%; }
+  .skill-set { width: 90%; }
+}
+
+@media (max-width: 400px) {
+  .section-title { font-size: 20px; margin-bottom: 25px; }
+  .flip-card { height: 200px; }
+  .flip-card-front img { width: 40px; margin-bottom: 10px; }
+  .flip-card-front h3 { font-size: 15px; }
+  .flip-card-back { font-size: 12px; padding: 12px; }
+}
+
+@media(max-width:360px){
+  .name h1 { font-size: 36px; }
+  .name p { font-size: 14px; }
+  .profile-pic { width: 120px; top: 250px; }
+  .button-bg { padding: 8px; }
+}
